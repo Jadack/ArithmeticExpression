@@ -1,0 +1,19 @@
+{
+  "name": "arithmetic-expression",
+  "version": "1.0.0",
+  "description": "Repositorio para la resolución de la tarea de Arithmetic Expression Parser and Converter.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jadack/ArithmeticExpression.git"
+  },
+  "author": "Jack Pacheco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jadack/ArithmeticExpression/issues"
+  },
+  "homepage": "https://github.com/Jadack/ArithmeticExpression#readme"
+}
