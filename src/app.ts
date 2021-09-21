@@ -17,6 +17,6 @@ export class ArithmeticExpression {
   }
 
   parse(exp: string): number {
-    return 0;
+    return eval(exp);
   }
 }
