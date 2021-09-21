@@ -7,7 +7,7 @@ describe('ArithmeticExpression', () => {
     expect(arithmeticExpression.check('2 + 2 *')).to.equal(false);
   });
 
-  it('Should return true with a correct expression (2 + 2 *)', () => {
+  it('Should return true with a correct expression (2 + 2 * 5)', () => {
     let arithmeticExpression = new ArithmeticExpression();
     expect(arithmeticExpression.check('2 + 2 * 5')).to.equal(true);
   });

@@ -1,8 +1,11 @@
 export class ArithmeticExpression {
-  constructor() {}
+  expValidator: RegExp;
+  constructor() {
+    this.expValidator = /(?:(?:^|[-+_*/])(?:\s*-?\d+(\.\d+)?(?:[eE][+-]?\d+)?\s*))+$/;
+  }
 
   check(exp: string): boolean {
-    return false;
+    return this.expValidator.test(exp);
   }
 
   toPrefix(exp: string): string {
