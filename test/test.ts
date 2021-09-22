@@ -2,6 +2,7 @@ import { ArithmeticExpression } from "../src/app";
 import { expect } from 'chai';
 
 describe('ArithmeticExpression', () => {
+
   // Check Unit Test
   it('Should return false with an incorrect expression (2 + 2 *).', () => {
     let arithmeticExpression = new ArithmeticExpression();
@@ -24,4 +25,35 @@ describe('ArithmeticExpression', () => {
     expect(arithmeticExpression.parse('2 + 2 * 3 / -5')).to.equal(0.8);
   });
 
+  // To Prefix Unit Test
+  it('Should return the prefix expression of the infix entry (2 + ( (2 * 3) / -5 ) => + * / - 2 ( (2 3) ) 5 )).', () => {
+    let arithmeticExpression = new ArithmeticExpression();
+    expect(arithmeticExpression.toPrefix('2 + ( (2 * 3) / -5 )')).to.equal('+ * / 2 ( (2 3) -5 )');
+  });
+
+  it('Should return the prefix expression of the infix entry (2 + 2 => + 2 2).', () => {
+    let arithmeticExpression = new ArithmeticExpression();
+    expect(arithmeticExpression.toPrefix('2 + 2')).to.equal('+ 2 2');
+  });
+
+  it('Should return the prefix expression of the infix entry (2 + 2 * 5 => + * 2 2 5).', () => {
+    let arithmeticExpression = new ArithmeticExpression();
+    expect(arithmeticExpression.toPrefix('2 + 2 * 5')).to.equal('+ * 2 2 5');
+  });
+
+  // To Postfix Unit Test
+  it('Should return the postfix expression of the infix entry 2 + 2 => 2 2 +.', () => {
+    let arithmeticExpression = new ArithmeticExpression();
+    expect(arithmeticExpression.toPostfix('2 + 2')).to.equal('2 2 +');
+  });
+
+  it('Should return the postfix expression of the infix entry 2 + 2 * 5 => 2 2 + 5 *.', () => {
+    let arithmeticExpression = new ArithmeticExpression();
+    expect(arithmeticExpression.toPostfix('2 + 2 * 5')).to.equal('2 2 + 5 *');
+  });
+
+  it('Should return the postfix expression of the infix entry (2 - 2 + 8) * 5 / 16 => 2 2 - 8 + 5 * 16 /.', () => {
+    let arithmeticExpression = new ArithmeticExpression();
+    expect(arithmeticExpression.toPostfix('(2 - 2 + 8) * 5 / 16')).to.equal('2 2 - 8 + 5 * 16 /');
+  });
 });
